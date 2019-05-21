@@ -1,0 +1,15 @@
+This is the FORM library used in my Master's project. It is used for the calculation of
+flavour-ordered amplitudes in the non-linear sigma model.
+
+I have uploaded it for reference and in the hope that it is useful to anyone who wishes
+to use my methods. It is rather ad-hoc in some places, and contains many deprecated
+parts. Use with caution, and read the documentation provided in the .prc files.
+
+The files named foM<n>p<N>.frm are used to compute the n-point O(p^N) amplitude using
+flavour-ordering. They are left as-is, and therefore contain various modes of post-
+processing. Nevertheless, they serve as a good reference for how to use the library,
+and most of them work "out of the box".
+
+The files named M<n>p<N>.frm are used to perform the same computations but without
+flavour-ordering. This is slower, but is used to verify that the flavour-ordering
+works as intended.
