@@ -1,0 +1,14 @@
+
+* This basis is propagator-containing (t1 to t6), complete and closed.
+multiply replace_(
+  s12, (   t1 +   t2        +   t4 +   t5                             )/2,
+  s23, (   t1 -   t2 +   t3 -   t4 -   t5 -   t6        + 2*t8        )/4,
+  s34, (          t2 +   t3        +   t5 +   t6                      )/2,
+  s45, (   t1 +   t2 -   t3 -   t4 -   t5 -   t6               + 2*t9 )/4,
+  s56, (   t1        +   t3 +   t4        +   t6                      )/2,
+  s61, (  -t1 +   t2 +   t3 -   t4 -   t5 -   t6 + 2*t7               )/4,
+  s13, (   t1                                                         )/1,
+  s24, (                 t3                                           )/1,
+  s35, (          t2                                                  )/1);
+
+id i? * prop(i?) = 1;
