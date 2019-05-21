@@ -1,0 +1,134 @@
+#define NF "4"
+#define PAR "EXP"
+
+#define ADLER "1"
+
+#define MANDEL "0"
+#define PRETTYMANDEL "0"
+
+#define SPLIT "unsplit"
+function vertid, [f], [p];
+symbol pid, vid, fid;
+
+#define RERUNVERT "1"
+#define RERUNDIAG "1"
+#define RERUNMANDEL "1"
+
+* Mass of the particles:
+* 0: massless
+* 1: massive, equal masses
+* 2: massive, inequal masses
+#define MASSIVE "0"
+
+
+* Simplifies cyclic offsets
+* COFS(I,S) is (I+S-1 mod NM)+1,
+* i.e. the Sth index after I in an
+* NM-cycle.
+#define COFS(I,S) "((`~I'+(`~S'-1))%`~NM' + 1)"
+
+function tr;
+cfunction Tr(cyclic);
+function M, t;
+cfunction phi;
+
+symbol F, Nf, L0,...,L8, H2;
+symbol C1,...,C19;
+symbol c1,...,c135;
+
+symbol sqrt2, invsqrt2, sqrt3, invsqrt3;
+function u, uu, du, Gamma;
+symbol dag;
+function param;
+function dcov, dpart, dstop;
+;
+function chip, chim, chi;
+*function fp, fm, FL, FR;
+
+* cbb = "chiral building blocks"
+function bb, bbb, bbpart;
+set cbb: u, chi, chip, chim
+*         FL, FR,
+          bbpart
+;
+* fsm = "flavour space matrices"
+set fsm: M, chi;
+
+* Masses
+symbol B0, B6, B7, B8;
+symbol Mu, Md, Ms;
+symbol Mpi, [Mpi+], [Mpi-], [Mpi0], 
+            [MK+], [MK-], [MK0], [MK0bar], [Meta];
+set masses: [Mpi+], [Mpi-], [Mpi0], 
+            [MK+], [MK-], [MK0], [MK0bar], [Meta];
+cfunction M2;
+
+
+* Shorthand for generators
+symbol   <[1]>,...,<[8]>;
+set gen: <[1]>,...,<[8]>;
+
+symbol pi,  [pi+], [pi-], [pi0], [K+], [K-], [K0], [K0bar], [eta];
+set mesons: [pi+], [pi-], [pi0], [K+], [K-], [K0], [K0bar], [eta];
+cfunction scatter, conj;
+cfunction delta(symmetric), epsilon(antisymmetric);
+
+#define NSYMB "64"
+
+vector p, <p0>,...,<p{`NSYMB'}>;
+set ps:   <p1>,...,<p{`NSYMB'}>;
+vector q, <q0>,...,<q{`NSYMB'}>;
+set qs:   <q1>,...,<q{`NSYMB'}>;
+vector k, kk, ok, ik, k1,...,k12;
+set ks: k1,...,k12;
+symbol pp, qq;
+
+symbol a, <a1>,...,<a{`NSYMB'}>;
+set as:   <a1>,...,<a{`NSYMB'}>;
+symbol b, <b1>,...,<b{`NSYMB'}>;
+set bs:   <b1>,...,<b{`NSYMB'}>;
+symbol ext, <ext1>,...,<ext12>;
+vector pext, <p1ext>,...,<p12ext>;
+set pexts: <p1ext>,...,<p12ext>;
+
+index mu, nu, ro, si;
+set lz: mu, nu, ro, si; 
+symbol i, ip, <i1>,...,<i{`NSYMB'}>;
+set is: <i1>,...,<i{`NSYMB'}>;
+
+symbol i, j, m, n, c;
+symbol ii, jj, mm, nn, cc;
+symbol mark;
+cfunction delt, com;
+cfunction prop, invprop, singlet, preprop;
+
+cfunction s;
+
+cfunction v1,...,v3;
+function fp, ff, rp, rf, perm;
+function replace,
+ cycle, permute;
+function uncycle, strip;
+
+function flavour, splitTr, split,
+         unsplit, anysplit;
+
+function diagram;
+cfunction counter, flavidx;
+symbol vertex;
+
+symbol t1,...,t9;
+symbol w2, w3, w4, w6, w8;
+
+symbol t123, t124, t125, t126, 
+       t14, t15, t16, 
+       t45, t56;
+symbol t1,...,t9;
+set ts: t1,...,t9;
+
+cfunction w;
+function group, temp, g1,...,g3;
+
+
+
+symbol soft;
