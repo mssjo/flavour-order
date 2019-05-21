@@ -1,5 +1,6 @@
 # FORM is not known by linguist, so we manually override the language identifications.
+# FORTRAN is the best approximation to the syntax colouring, so we stick with it.
 
-*.frm linguist-language=Form
-*.prc linguist-language=Form
-*.hf linguist-language=Form
+*.frm linguist-language=Fortran
+*.prc linguist-language=Fortran
+*.hf linguist-language=Fortran
