@@ -1,0 +1,5 @@
+# FORM is not known by linguist, so we manually override the language identifications.
+
+*.frm linguist-language=FORM
+*.prc linguist-language=FORM
+*.hf linguist-language=FORM
