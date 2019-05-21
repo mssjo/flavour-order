@@ -1,5 +1,5 @@
 # FORM is not known by linguist, so we manually override the language identifications.
 
-*.frm linguist-language=Fortran
-*.prc linguist-language=Fortran
-*.hf linguist-language=Fortran
+*.frm linguist-language=Form
+*.prc linguist-language=Form
+*.hf linguist-language=Form
