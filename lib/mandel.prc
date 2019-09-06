@@ -10,7 +10,7 @@
 *  s(p1,p2) = (p1 + p2)^2
 *  s(p1,p3) = (p1 + p2 + p3)^2
 *  s(p1,p4) = (p1 + p2 + p3 + p4)^2
-* (and so on for higher NM) plus cyclic permutations:
+* (and so on for higher NM) plus cyclic permutations thereof:
 *  s(p1,p2), s(p2,p3),..., s(p7,p8), s(p8,p1) etc.
 * Due to conservation of momentum, we have
 *  s(pi, pj) = s(p(j+1), p(i-1)).

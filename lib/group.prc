@@ -53,17 +53,16 @@ argument group;
       , mandel[{`N'*{`N'/2 - 2} + 1}]
     );
   #elseif(`G' == [Z2/4])
+*    NOTE: this uses the modified 2/4 basis with t5, t6 as fixed points
     id g1 = replace(t1,...,t6, -t7, -t8, -t9);
-    id g2 = replace(t2,t3,t4,t1, t6,t5, t8, -t7, -t9);
+    id g2 = replace(t2,t3,t4,t1, t5, -t6, t8, -t7, -t9);
   #elseif(`G' == [Z3/3])
-    id g1 = replace(t1, 
-                    w3*t3, w3*t4, w3*t2, 
-                    w3^2*t6, w3^2*t7, w3^2*t5,
-                    w3*t8, w3*t9);
-    id g2 = replace(t1,
-                    t3, t2, t4,
-                    t6, t4, t7,
-                    t9, t8);
+    id g1 = replace(t2, t3, t1, 
+                    w3*t5, w3*t6, w3*t4, 
+                    w3^2*t8, w3^2*t9, w3^2*t7);
+    id g2 = replace(t1, t3, t2,
+                    t4, t6, t5,
+                    t7, t9, t8);
   #elseif(`G' == [Z2/2/2])
     id g1 = replace(t1, t2, t6, t4, t5, t3,
                     -t7, -t8, t9);

@@ -1,4 +1,8 @@
 #procedure prettymandel(NM)
+* Converts the flexible function-based Mandelstam variables
+* (e.g. s(p1,p2)) to less flexible but more readable
+* symbol-based variables (e.g. s12). Also introduces s,t,u
+* for 4-point scattering.
 
 .sort
 
@@ -18,7 +22,7 @@
 #if(`NM' = 4)
 * The symbols for the ordinary Mandelstam variables s, u (and t) 
 * are already defined, so we'll have to settle with formal names
-  symbol [s],[u];
+  symbol [s],[u],[t];
   set mandel:
   #if(`MASSIVE')
     m1,...,m{`NM'}

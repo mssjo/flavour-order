@@ -38,6 +38,7 @@ repeat;
     = uncycle(pp * replace_(?a)) * group(?b);
   argument uncycle;
     id w3^3 = 1;
+    id w3^2 = -(1 + w3);
   endargument;
 
 *   If the new version is "less" than the current one, we replace it!

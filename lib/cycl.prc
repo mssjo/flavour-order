@@ -24,6 +24,6 @@ id rp(?a) = replace_(?a);
 id rf(?a) = replace_(?a);
 
 
-.sort:Cycling -;
+.sort:Cycling - ;
 
 #endprocedure

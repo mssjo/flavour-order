@@ -1,23 +1,59 @@
+*************** 
+**  defs.hf  **
+***************
+**
+** Contains all the definitions used by various procedures.
+** There is quite a bit of crud floating around here that is not
+** in current use, but it's safer to leave it than trying to
+** clean it up, in case one wants to dust off a deprecated file
+** that needs them.
+**
+
+* The directory in which fodge output is found, and the prefix
+* used in the output files before the name of the amplitude.
+* Change as needed.
+#define FODGEDIR "../fodge/output/"
+#define FODGEPREFIX "fodge_"
+
+* Number of flavours - options are 2, 3, and "essentially infinity".
 #define NF "4"
+
+* Exponential parametrisation of the fields - only valid one in
+* general case, but others work at LO.
 #define PAR "EXP"
 
+* Adler zero enable/disable flag
 #define ADLER "1"
 
+* Set to 1 by mandel and prettymandel to indicate that they have
+* been used.
 #define MANDEL "0"
 #define PRETTYMANDEL "0"
 
+* Used by sfrule.prc and diagram.prc
 #define SPLIT "unsplit"
 function vertid, [f], [p];
 symbol pid, vid, fid;
 
+function diagram;
+cfunction counter, flavidx;
+symbol vertex;
+
+* Large calculations can be split up into sections:
+* vertex factor calculation, diagram calculation,
+* Mandelstam conversion. Sections are only rerun
+* if the corresponding flag is enabled.
 #define RERUNVERT "1"
 #define RERUNDIAG "1"
 #define RERUNMANDEL "1"
+* flag to enable such sections
+#define USERERUN "0"
 
 * Mass of the particles:
 * 0: massless
 * 1: massive, equal masses
 * 2: massive, inequal masses
+* (massive particles not entirely implemented)
 #define MASSIVE "0"
 
 
@@ -27,24 +63,33 @@ symbol pid, vid, fid;
 * NM-cycle.
 #define COFS(I,S) "((`~I'+(`~S'-1))%`~NM' + 1)"
 
+* Noncommutative and commutative trace
 function tr;
 cfunction Tr(cyclic);
+
+* Flavour matrices and fields
 function M, t;
 cfunction phi;
 
+* Low-energy constants (LECs)
 symbol F, Nf, L0,...,L8, H2;
 symbol C1,...,C19;
 symbol c1,...,c135;
 
+* Various numeric constants
 symbol sqrt2, invsqrt2, sqrt3, invsqrt3;
+
+* Lagrangian building blocks and related
 function u, uu, du, Gamma;
 symbol dag;
 function param;
 function dcov, dpart, dstop;
-;
+
+* ChPT stuff
 function chip, chim, chi;
 *function fp, fm, FL, FR;
 
+* Sets for organisation
 * cbb = "chiral building blocks"
 function bb, bbb, bbpart;
 set cbb: u, chi, chip, chim
@@ -68,13 +113,17 @@ cfunction M2;
 symbol   <[1]>,...,<[8]>;
 set gen: <[1]>,...,<[8]>;
 
+* Stuff for physical massive amplitudes
 symbol pi,  [pi+], [pi-], [pi0], [K+], [K-], [K0], [K0bar], [eta];
 set mesons: [pi+], [pi-], [pi0], [K+], [K-], [K0], [K0bar], [eta];
 cfunction scatter, conj;
 cfunction delta(symmetric), epsilon(antisymmetric);
 
+* Number of symbols defined - slightly deprecated since
+* sfrule.prc now defines its own symbols
 #define NSYMB "64"
 
+* Various momenta
 vector p, <p0>,...,<p{`NSYMB'}>;
 set ps:   <p1>,...,<p{`NSYMB'}>;
 vector q, <q0>,...,<q{`NSYMB'}>;
@@ -83,6 +132,7 @@ vector k, kk, ok, ik, k1,...,k12;
 set ks: k1,...,k12;
 symbol pp, qq;
 
+* Various flavour indices
 symbol a, <a1>,...,<a{`NSYMB'}>;
 set as:   <a1>,...,<a{`NSYMB'}>;
 symbol b, <b1>,...,<b{`NSYMB'}>;
@@ -91,6 +141,7 @@ symbol ext, <ext1>,...,<ext12>;
 vector pext, <p1ext>,...,<p12ext>;
 set pexts: <p1ext>,...,<p12ext>;
 
+* Lorentz indices
 index mu, nu, ro, si;
 set lz: mu, nu, ro, si; 
 symbol i, ip, <i1>,...,<i{`NSYMB'}>;
@@ -104,31 +155,29 @@ cfunction prop, invprop, singlet, preprop;
 
 cfunction s;
 
+* Stuff for cycling, uncycling, etc.
 cfunction v1,...,v3;
 function fp, ff, rp, rf, perm;
-function replace,
- cycle, permute;
+function replace, cycle, permute;
 function uncycle, strip;
-
 function flavour, splitTr, split,
          unsplit, anysplit;
 
-function diagram;
-cfunction counter, flavidx;
-symbol vertex;
-
+* Closed bases
 symbol t1,...,t9;
 symbol w2, w3, w4, w6, w8;
-
 symbol t123, t124, t125, t126, 
        t14, t15, t16, 
        t45, t56;
 symbol t1,...,t9;
 set ts: t1,...,t9;
 
+* Z_R groups
 cfunction w;
 function group, temp, g1,...,g3;
 
-
+* Renormalisation
+symbol G2, G1, GL;
+symbol <L0r>,...,<L3r>;
 
 symbol soft;

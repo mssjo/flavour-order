@@ -44,16 +44,14 @@
 *   4, 
 *     diagram(V3, 5,6,7, prop(p5+p6+p7)),
 *   8) * cycle(4, 1,...,8)
-* for the "trans" or "|" arrangement of the middle vertex, and
+* for the "|" arrangement of the middle vertex, and
 *   diagram(V2,
 *     diagram(V1, 1,2,3, prop(p1+p2+p3)),
 *     diagram(V3, 4,5,6, prop(p4+p5+p6)),
 *   7,8) * cycle(8, 1,...,8)
-* for the "cis" or "\/" arrangement. (Sometimes, the diagram is so nonsymmetric
-* that we also need to consider the "uls" or "/\" arrangement, in which
-* both 4 and 5 are placed before the second sub-diagram.) In both cases, the 
-* middle vertex is chosen to be the outermost nesting, but this is not the only 
-* possible choice. V1,V2,V3 are all created with 
+* for the  "\/" arrangement.  In both cases, the middle vertex is chosen to be 
+* the outermost nesting, but this is not the only possible choice. 
+* V1,V2,V3 are all created with 
 *   #call sfrule(4,2,Vx)
 * using SPLIT set to nosplit.
 *
@@ -123,8 +121,9 @@ id counter(n?) = 1;
 
 .sort
 
+* Handles replacements of generically named momenta [p] 
+* and flavour indicec [f]
 id replace(vid?, i?, j?) = rp([p](vid,i), ps[j]) * rf([f](vid,i), as[j]);
-
 argument rp, rf;
   #do VID=1,{`VERTID'-1}
     id [p](`VID',i?) = [ps`VID'][i];
@@ -146,7 +145,7 @@ repeat id Tr(?a, 0) = Tr(?a);
 * 0 for NM=4, 1 for NM=6, 2 for NM=8, etc.
 #do I = 1,{{`NM'-4}/2}
   
-* No need to worry about 1/Nf terms thanks to U(N) decoupling!
+* No need to worry about 1/Nf terms thanks to U(1) decoupling!
 * (If we do need to worry, we handle it with singlet diagrams)
   id Tr(?a, i`I') * Tr(i`I', ?b) = Tr(?a, ?b);
   .sort

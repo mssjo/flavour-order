@@ -1,4 +1,9 @@
 #procedure mandelHelper(NM, ARGPROP)
+* Helper procedure to mandel.prc.
+* 
+* NM      - number of momenta
+* ARGPROP - if 1, the procedure is applied to propagators;
+*           if 0, it is applied to the rest of the amplitude. 
 
 * Substitutes powers of momenta
 #do I=1,`NM'
