@@ -1,39 +1,16 @@
 
-#define NM "10"
-#define OP "2"
+#prependpath ../lib/
+
+#define NM "8"
+#define OP "4"
 
 #include defs.hf
 #include init_fo.hf
 
-#if((`NM'==10) && (`OP'==4))
+#call fodge(M`NM'p`OP', `NM')
 
-#call fodge(10p4, 10)
-
-*global [M10p4.2] = [M10p4];
-
-*.sort
-*skip [M10p4.2];
-
-*#call adler(10,1)
-
-*.sort
-*skip [M10p4];
-
-*#call adler(10,3)
-
-*.sort
-
-*#call mandelrand(10,0)
-
-#call prettymandel(10)
-
-#elseif((`NM'==10) && (`OP'==2))
-
-#call fodge(10p2,10)
-
-#call adler(10,1)
-
-#endif
+#call adler(`NM', 1);
+#call mandelrand(`NM', 0);
 
 #call print
 .end

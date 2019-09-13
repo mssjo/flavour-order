@@ -1,3 +1,4 @@
+#prependpath ../lib/
 #include defs.hf
 #include init_fo.hf
 

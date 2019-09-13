@@ -12,8 +12,8 @@
 * The directory in which fodge output is found, and the prefix
 * used in the output files before the name of the amplitude.
 * Change as needed.
-#define FODGEDIR "../fodge/output/"
-#define FODGEPREFIX "fodge_"
+#define FODGEDIR "../../../fodge/output/"
+#define FODGEPREFIX ""
 
 * Number of flavours - options are 2, 3, and "essentially infinity".
 #define NF "4"
