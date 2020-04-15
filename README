@@ -5,6 +5,13 @@ I have uploaded it for reference and in the hope that it is useful to anyone who
 to use my methods. It is rather ad-hoc in some places, and contains many deprecated
 parts. Use with caution, and read the documentation provided in the .prc files.
 
+The easiest way to calculate amplitudes is to run fodge (see separate repository) with
+the -f option enabled. This will generate a set of .hf files containing the information
+needed for FORM to compute the amplitude. These are used by running run_fordge.prc.
+
+Alternatively, one can calculate using hand-written diagrams, which was done when
+developing this library before fodge existed.
+
 The files named foMXpY.frm are used to compute the X-point O(p^Y) amplitude using
 flavour-ordering. They are left as-is, and therefore contain various modes of post-
 processing. Nevertheless, they serve as a good reference for how to use the library,
